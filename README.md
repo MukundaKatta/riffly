@@ -1,22 +1,47 @@
 # Riffly
 
-> Sing it in anyone's voice.
+Sing it in anyone's voice. Covers, duets, parodies — studio-quality vocals from ethically licensed artists.
 
-Covers, duets, parodies. Generate studio-quality vocals from your favorite artists — ethically licensed.
+**Status:** v0 skeleton — landing page + voice studio mock. No real audio generation yet.
 
-## What you get
+**Landing:** https://riffly.vercel.app
 
-- **500 licensed voices** — Real artists who opted in. They earn on every use. You get the sound you love.
-- **Full instrumentals** — Not just vocals — we generate the whole track, mixed and mastered.
-- **Ready for TikTok** — Export in portrait with captions baked in. Post straight from the app.
+---
 
-## Category
+## Stack
 
-Consumer AI. Part of a 50-product exploration of high-demand consumer and SMB markets.
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript (strict) |
+| Styling | Tailwind v4 |
+| Fonts | Inter via `next/font/google` |
+| Hosting | Vercel (zero config) |
+| Waitlist | https://waitlist-api-sigma.vercel.app |
 
-## Status
+## Run locally
 
-Landing page live with interactive demo and functional waitlist.
+```bash
+pnpm install
+pnpm dev
+```
 
-- **Live:** https://mukundakatta.github.io/riffly/
-- **Waitlist API:** https://waitlist-api-sigma.vercel.app/api/waitlist
+Open http://localhost:3000.
+
+## Deploy
+
+Push to `main` — Vercel picks it up automatically. No environment variables required.
+
+## Routes
+
+| Route | Description |
+|---|---|
+| `/` | Landing page (original copy & design preserved) |
+| `/try` | v0 voice studio — pick a voice, paste lyrics, see animated waveform (mocked) |
+| `/api/waitlist` | `POST { email }` → forwards to waitlist-api-sigma |
+
+## What's next
+
+- Wire real voice synthesis behind `/try`
+- Audio playback + download
+- Auth + per-user generation history
