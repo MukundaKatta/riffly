@@ -7,10 +7,16 @@
 <meta name="description" content="Covers, duets, parodies. Generate studio-quality vocals from your favorite artists — ethically licensed.">
 <meta property="og:title" content="Riffly — Sing it in anyone's voice.">
 <meta property="og:description" content="Covers, duets, parodies. Generate studio-quality vocals from your favorite artists — ethically licensed.">
+<meta property="og:image" content="https://waitlist-api-sigma.vercel.app/api/og?title=Riffly&accent=purple&category=Consumer%20AI">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://waitlist-api-sigma.vercel.app/api/og?title=Riffly&accent=purple&category=Consumer%20AI">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+<script defer data-domain="riffly.vercel.app" src="https://plausible.io/js/script.js"></script>
 <style>
   body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
   * { -webkit-font-smoothing: antialiased; }
@@ -185,6 +191,7 @@
       if (!email) return;
       form.style.display = 'none';
       thanks.classList.remove('hidden');
+      if (typeof plausible !== 'undefined') plausible('waitlist_signup', { props: { product: PRODUCT } });
       try {
         await fetch(WAITLIST_API, {
           method: 'POST',
